@@ -2,17 +2,6 @@ require('dotenv').config();
 
 const mongoose = require('mongoose');
 
-// console.log(process.env.DB_URI)
-
-// mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-
-// mongoose.connection.on('connected', () => {
-//   console.log('Successfully connected to the DB')
-// })
-// mongoose.connection.on('disconnected', () => {
-//   console.log('Disconnected from the DB')
-// })
-
 const urlSchema = new mongoose.Schema({
   original_url: {
     type: String,

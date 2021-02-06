@@ -2,14 +2,6 @@ require('dotenv').config();
 
 const mongoose = require('mongoose');
 
-// mongoose.connection.on('connected', () => {
-//   console.log('Successfully connected to the DB')
-// })
-
-// mongoose.connection.on('disconnected', () => {
-//   console.log('Disconnected from the DB')
-// })
-
 const connect = async () => {
   if (mongoose.connection.readyState === 0) {
     try {

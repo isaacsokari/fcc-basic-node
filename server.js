@@ -18,6 +18,10 @@ app.get('/shorturl', function (req, res) {
   res.sendFile(process.cwd() + '/views/url-shortener/index.html');
 });
 
+app.get('/shorturl/:shorturl', function (req, res) {
+  res.redirect(`/api/shorturl/${req.params.shorturl}`);
+});
+
 app.get('/fileanalyse', function (req, res) {
   res.sendFile(process.cwd() + '/views/file-metadata/index.html');
 });
@@ -42,7 +46,3 @@ app.listen(port, function () {
   console.log('Your app is listening on port ' + port);
   database.connect();
 });
-
-// app.on('listening', () => {
-//   database.connect();
-// });
