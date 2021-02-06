@@ -1,0 +1,24 @@
+{
+  "name": "basic-node",
+  "version": "1.0.0",
+  "description": "API project for freeCodeCamp",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.12",
+    "multer": "^1.4.2",
+    "uuidv4": "^6.2.6"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
