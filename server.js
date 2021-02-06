@@ -3,10 +3,10 @@ const express = require('express');
 const cors = require('cors');
 
 const apiControllers = require('./controllers/index');
-
 const app = express();
 
-app.use(cors());
+app.use(cors({ optionsSuccessStatus: 200 })); // some legacy browsers choke on 204
+
 app.use('/public', express.static(process.cwd() + '/public'));
 
 app.get('/', function (req, res) {
@@ -33,7 +33,7 @@ app.get('/exercise', function (req, res) {
   res.sendFile(process.cwd() + '/views/exercise-tracker/index.html');
 });
 
-// app.use('/api', apiControllers);
+app.use('/api', apiControllers);
 
 const port = process.env.PORT || 3000;
 

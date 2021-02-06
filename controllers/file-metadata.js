@@ -1,27 +1,17 @@
-require('dotenv').config()
+require('dotenv').config();
 const express = require('express');
-const cors = require('cors');
 const multer = require('multer');
 
 const upload = multer({ dest: false });
 
-const app = express();
+const router = express.Router();
 
-app.use(cors());
-app.use('/public', express.static(process.cwd() + '/public'));
+router.post('/fileanalyse', upload.single('upfile'), (req, res) => {
+  console.log(req.file);
 
-app.get('/', function (req, res) {
-    res.sendFile(process.cwd() + '/views/index.html');
+  const { mimetype: type, originalname: name, size } = req.file;
+
+  res.json({ name, type, size });
 });
 
-app.post('/api/fileanalyse',upload.single('upfile'), (req, res) => {
-  console.log(req.file)
-
-  const {mimetype: type, originalname: name, size} = req.file;
-
-  res.json({name, type, size});
-})
-
-
-const port = process.env.PORT || 3000;
-
+module.exports = router;
