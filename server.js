@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 
 const apiControllers = require('./controllers/index');
+const database = require('./db/database');
 const app = express();
 
 app.use(cors({ optionsSuccessStatus: 200 })); // some legacy browsers choke on 204
@@ -39,4 +40,9 @@ const port = process.env.PORT || 3000;
 
 app.listen(port, function () {
   console.log('Your app is listening on port ' + port);
+  database.connect();
 });
+
+// app.on('listening', () => {
+//   database.connect();
+// });
